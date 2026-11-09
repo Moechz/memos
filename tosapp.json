@@ -1,0 +1,99 @@
+{
+  "app_id": "memosdocker",
+  "title": "Memos",
+  "image": "neosmemo/memos:0.31.0",
+  "repo_name": "memos",
+  "mode": "plain",
+  "container_port": 5230,
+  "category": [
+    "Utilities"
+  ],
+  "volumes": [
+    {
+      "host": "/Volume1/DockerAppData/memosdocker/data",
+      "container": "/var/opt/memos"
+    }
+  ],
+  "env": {
+    "TZ": "Asia/Shanghai"
+  },
+  "auth": "usememos",
+  "upstream_url": "https://github.com/usememos/memos",
+  "upstream_license": "MIT",
+  "descript": "Memos is a lightweight, self-hosted memo hub: a private place for quick notes, links and ideas. Write in Markdown, organise with tags, attach images, and share a single memo with a public link. It runs as one small container with an embedded SQLite database, so there is no database server to install, and everything you write stays in the application data folder on your NAS.",
+  "release_note": "1. First release: Memos 0.31.0 from Docker Hub as a non-root container. Embedded SQLite, Markdown notes with tags and attachments, public share links, and all data in the application data folder so it survives restarts and updates.",
+  "important": "Requires DockerEngine (installed automatically if missing). The first account you register becomes the administrator; notes, attachments and settings live in DockerAppData/memosdocker/data. The web UI is plain HTTP on the published port - put it behind a TLS reverse proxy before exposing it to the internet. Back up the data folder before uninstalling with data removal; the container itself keeps no state.",
+  "probe": {
+    "user_in_image": "root",
+    "entrypoint": [
+      "/usr/local/memos/entrypoint.sh",
+      "/usr/local/memos/memos"
+    ],
+    "cmd": null,
+    "exposed_ports": [
+      5230
+    ],
+    "declared_volumes": [
+      "/var/opt/memos"
+    ],
+    "image_healthcheck": [],
+    "digest": "neosmemo/memos@sha256:24c2707ddd8fbd2ceaa7a61ecab86a53cdcde640b24ce572b73da14b00b5785f",
+    "architecture": "x86_64",
+    "platforms": [
+      "x86_64",
+      "aarch64"
+    ],
+    "http_client_in_image": "wget",
+    "trial_run": {
+      "ok": true,
+      "http_code": "200",
+      "state": "running",
+      "paths": [],
+      "host_port": 18000,
+      "log_tail": "time=2026-11-09T15:15:13.439Z level=INFO msg=\"initializing new database with latest schema\" file=migration/sqlite/LATEST.sql\nMemos 0.31.0 started successfully!\nData directory: /var/opt/memos\nDatabase driver: sqlite\nServer running on port 5230\nAccess your memos at: http://localhost:5230\nAccess mode: private\ntime=2026-11-09T15:15:13.443Z level=INFO msg=\"database initialized successfully\" schemaVersion=0.31.8",
+      "files_in_mounts": "/tmp/tosdocker-trial-1794237312/var_opt_memos/memos_prod.db-shm\n/tmp/tosdocker-trial-1794237312/var_opt_memos/memos_prod.db-wal\n/tmp/tosdocker-trial-1794237312/var_opt_memos/memos_prod.db"
+    },
+    "docker_hub": {},
+    "github": {}
+  },
+  "healthcheck": [
+    "CMD-SHELL",
+    "wget -q -O /dev/null http://127.0.0.1:5230/ || exit 1"
+  ],
+  "platform": "x86_64",
+  "user": "1000:1000",
+  "publisher": "Moechz",
+  "compose_project": "memosdocker",
+  "github_repo": "memos",
+  "upstream_version": "0.31.0",
+  "release_tag_prefix": "v",
+  "version": "0.31.0-1",
+  "help": "https://github.com/Moechz/memos/issues",
+  "official": "https://github.com/usememos/memos",
+  "license": "MIT",
+  "docker_socket": false,
+  "group_add": [],
+  "translations": {
+    "zh-cn": {
+      "descript": "Memos 是一款轻量的自托管速记本：随手记录笔记、链接和想法，数据完全留在自己的 NAS 上。支持 Markdown、标签、图片附件，单条 memo 还能生成公开分享链接。整个应用只有一个容器，内置 SQLite，无需额外安装数据库，所有内容都保存在应用数据目录中。",
+      "important": "需要 DockerEngine（缺失时应用中心会自动安装）。第一个注册的账号即管理员；笔记、附件与设置都保存在 DockerAppData/memosdocker/data。界面为纯 HTTP，暴露到公网前请配置带 TLS 的反向代理。卸载并删除数据前请先备份 data 目录，容器本身不保存状态。",
+      "release_note": "1. 首个版本：基于 Docker Hub 的 Memos 0.31.0，以非 root 容器运行。内置 SQLite，支持 Markdown 笔记、标签与附件、公开分享链接；数据全部保存在应用数据目录，重启和更新都不丢失。"
+    },
+    "zh-hk": {
+      "descript": "Memos 是一款輕量的自託管速記本：隨手記錄筆記、連結和想法，資料完全留在自己的 NAS 上。支援 Markdown、標籤、圖片附件，單條 memo 亦可產生公開分享連結。整個應用只有一個容器，內建 SQLite，無需額外安裝資料庫，所有內容都保存在應用資料目錄中。",
+      "important": "需要 DockerEngine（缺少時應用中心會自動安裝）。第一個註冊的帳號即管理員；筆記、附件與設定都保存在 DockerAppData/memosdocker/data。介面為純 HTTP，公開到互聯網前請配置帶 TLS 的反向代理。解除安裝並刪除資料前請先備份 data 目錄，容器本身不保存狀態。",
+      "release_note": "1. 首個版本：基於 Docker Hub 的 Memos 0.31.0，以非 root 容器運行。內建 SQLite，支援 Markdown 筆記、標籤與附件、公開分享連結；資料全部保存在應用資料目錄，重啟和更新都不會遺失。"
+    }
+  },
+  "data_notes": "Everything Memos writes lives in `/var/opt/memos`, mounted from `/Volume1/DockerAppData/memosdocker/data`: the SQLite database, uploaded attachments and the instance configuration.",
+  "design_notes": [
+    "**No database server.** Memos embeds SQLite; the container starts in a couple of seconds and there is no extra service to supervise.",
+    "**One volume, one port.** Only `/var/opt/memos` is persistent and only container port 5230 is published; no Docker socket, no privileged mode, no host networking."
+  ],
+  "limitations": [
+    "- The web UI is served over plain HTTP on the published port; use a TLS reverse proxy if you expose it outside your LAN.",
+    "- The first registered account becomes the administrator - create it right after the install, before opening the port to other people.",
+    "- The data folder is not visible in TOS File Manager; back it up over SMB/SSH or add the path to a TOS backup task."
+  ],
+  "host_port": 8030
+}

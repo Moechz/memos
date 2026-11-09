@@ -1,0 +1,195 @@
+# ===========================================================================
+# Multilingual file for the TOS 7 Docker application "memosdocker".
+# File name MUST be: <appid>.lang.  23-language superset (14 required by TOS).
+# The App Center picks the text matching the user's device language;
+# untranslated nodes fall back to English, which the official guide allows.
+# Fields: name (app title), auth (upstream author), descript (up to 512
+# chars), release_note, important (up to 512 chars).
+# Translations come from tosapp.json "translations"; run
+#   tosdocker lang <app>          to re-render this file
+#   tosdocker translate <app>     to see what still needs translating
+# ===========================================================================
+[en-us]
+name         = "Memos"
+auth         = "usememos"
+version      = "@@VERSION@@"
+descript     = "Memos is a lightweight, self-hosted memo hub: a private place for quick notes, links and ideas. Write in Markdown, organise with tags, attach images, and share a single memo with a public link. It runs as one small container with an embedded SQLite database, so there is no database server to install, and everything you write stays in the application data folder on your NAS."
+release_note = "1. First release: Memos 0.31.0 from Docker Hub as a non-root container. Embedded SQLite, Markdown notes with tags and attachments, public share links, and all data in the application data folder so it survives restarts and updates."
+important    = "Requires DockerEngine (installed automatically if missing). The first account you register becomes the administrator; notes, attachments and settings live in DockerAppData/memosdocker/data. The web UI is plain HTTP on the published port - put it behind a TLS reverse proxy before exposing it to the internet. Back up the data folder before uninstalling with data removal; the container itself keeps no state."
+
+[zh-cn]
+name         = "Memos"
+auth         = "usememos"
+version      = "@@VERSION@@"
+descript     = "Memos 是一款轻量的自托管速记本：随手记录笔记、链接和想法，数据完全留在自己的 NAS 上。支持 Markdown、标签、图片附件，单条 memo 还能生成公开分享链接。整个应用只有一个容器，内置 SQLite，无需额外安装数据库，所有内容都保存在应用数据目录中。"
+release_note = "1. 首个版本：基于 Docker Hub 的 Memos 0.31.0，以非 root 容器运行。内置 SQLite，支持 Markdown 笔记、标签与附件、公开分享链接；数据全部保存在应用数据目录，重启和更新都不丢失。"
+important    = "需要 DockerEngine（缺失时应用中心会自动安装）。第一个注册的账号即管理员；笔记、附件与设置都保存在 DockerAppData/memosdocker/data。界面为纯 HTTP，暴露到公网前请配置带 TLS 的反向代理。卸载并删除数据前请先备份 data 目录，容器本身不保存状态。"
+
+[zh-hk]
+name         = "Memos"
+auth         = "usememos"
+version      = "@@VERSION@@"
+descript     = "Memos 是一款輕量的自託管速記本：隨手記錄筆記、連結和想法，資料完全留在自己的 NAS 上。支援 Markdown、標籤、圖片附件，單條 memo 亦可產生公開分享連結。整個應用只有一個容器，內建 SQLite，無需額外安裝資料庫，所有內容都保存在應用資料目錄中。"
+release_note = "1. 首個版本：基於 Docker Hub 的 Memos 0.31.0，以非 root 容器運行。內建 SQLite，支援 Markdown 筆記、標籤與附件、公開分享連結；資料全部保存在應用資料目錄，重啟和更新都不會遺失。"
+important    = "需要 DockerEngine（缺少時應用中心會自動安裝）。第一個註冊的帳號即管理員；筆記、附件與設定都保存在 DockerAppData/memosdocker/data。介面為純 HTTP，公開到互聯網前請配置帶 TLS 的反向代理。解除安裝並刪除資料前請先備份 data 目錄，容器本身不保存狀態。"
+
+[fr-fr]
+name         = "Memos"
+auth         = "usememos"
+version      = "@@VERSION@@"
+descript     = "Memos is a lightweight, self-hosted memo hub: a private place for quick notes, links and ideas. Write in Markdown, organise with tags, attach images, and share a single memo with a public link. It runs as one small container with an embedded SQLite database, so there is no database server to install, and everything you write stays in the application data folder on your NAS."
+release_note = "1. First release: Memos 0.31.0 from Docker Hub as a non-root container. Embedded SQLite, Markdown notes with tags and attachments, public share links, and all data in the application data folder so it survives restarts and updates."
+important    = "Requires DockerEngine (installed automatically if missing). The first account you register becomes the administrator; notes, attachments and settings live in DockerAppData/memosdocker/data. The web UI is plain HTTP on the published port - put it behind a TLS reverse proxy before exposing it to the internet. Back up the data folder before uninstalling with data removal; the container itself keeps no state."
+
+[de-de]
+name         = "Memos"
+auth         = "usememos"
+version      = "@@VERSION@@"
+descript     = "Memos is a lightweight, self-hosted memo hub: a private place for quick notes, links and ideas. Write in Markdown, organise with tags, attach images, and share a single memo with a public link. It runs as one small container with an embedded SQLite database, so there is no database server to install, and everything you write stays in the application data folder on your NAS."
+release_note = "1. First release: Memos 0.31.0 from Docker Hub as a non-root container. Embedded SQLite, Markdown notes with tags and attachments, public share links, and all data in the application data folder so it survives restarts and updates."
+important    = "Requires DockerEngine (installed automatically if missing). The first account you register becomes the administrator; notes, attachments and settings live in DockerAppData/memosdocker/data. The web UI is plain HTTP on the published port - put it behind a TLS reverse proxy before exposing it to the internet. Back up the data folder before uninstalling with data removal; the container itself keeps no state."
+
+[it-it]
+name         = "Memos"
+auth         = "usememos"
+version      = "@@VERSION@@"
+descript     = "Memos is a lightweight, self-hosted memo hub: a private place for quick notes, links and ideas. Write in Markdown, organise with tags, attach images, and share a single memo with a public link. It runs as one small container with an embedded SQLite database, so there is no database server to install, and everything you write stays in the application data folder on your NAS."
+release_note = "1. First release: Memos 0.31.0 from Docker Hub as a non-root container. Embedded SQLite, Markdown notes with tags and attachments, public share links, and all data in the application data folder so it survives restarts and updates."
+important    = "Requires DockerEngine (installed automatically if missing). The first account you register becomes the administrator; notes, attachments and settings live in DockerAppData/memosdocker/data. The web UI is plain HTTP on the published port - put it behind a TLS reverse proxy before exposing it to the internet. Back up the data folder before uninstalling with data removal; the container itself keeps no state."
+
+[es-es]
+name         = "Memos"
+auth         = "usememos"
+version      = "@@VERSION@@"
+descript     = "Memos is a lightweight, self-hosted memo hub: a private place for quick notes, links and ideas. Write in Markdown, organise with tags, attach images, and share a single memo with a public link. It runs as one small container with an embedded SQLite database, so there is no database server to install, and everything you write stays in the application data folder on your NAS."
+release_note = "1. First release: Memos 0.31.0 from Docker Hub as a non-root container. Embedded SQLite, Markdown notes with tags and attachments, public share links, and all data in the application data folder so it survives restarts and updates."
+important    = "Requires DockerEngine (installed automatically if missing). The first account you register becomes the administrator; notes, attachments and settings live in DockerAppData/memosdocker/data. The web UI is plain HTTP on the published port - put it behind a TLS reverse proxy before exposing it to the internet. Back up the data folder before uninstalling with data removal; the container itself keeps no state."
+
+[hu-hu]
+name         = "Memos"
+auth         = "usememos"
+version      = "@@VERSION@@"
+descript     = "Memos is a lightweight, self-hosted memo hub: a private place for quick notes, links and ideas. Write in Markdown, organise with tags, attach images, and share a single memo with a public link. It runs as one small container with an embedded SQLite database, so there is no database server to install, and everything you write stays in the application data folder on your NAS."
+release_note = "1. First release: Memos 0.31.0 from Docker Hub as a non-root container. Embedded SQLite, Markdown notes with tags and attachments, public share links, and all data in the application data folder so it survives restarts and updates."
+important    = "Requires DockerEngine (installed automatically if missing). The first account you register becomes the administrator; notes, attachments and settings live in DockerAppData/memosdocker/data. The web UI is plain HTTP on the published port - put it behind a TLS reverse proxy before exposing it to the internet. Back up the data folder before uninstalling with data removal; the container itself keeps no state."
+
+[ja-jp]
+name         = "Memos"
+auth         = "usememos"
+version      = "@@VERSION@@"
+descript     = "Memos is a lightweight, self-hosted memo hub: a private place for quick notes, links and ideas. Write in Markdown, organise with tags, attach images, and share a single memo with a public link. It runs as one small container with an embedded SQLite database, so there is no database server to install, and everything you write stays in the application data folder on your NAS."
+release_note = "1. First release: Memos 0.31.0 from Docker Hub as a non-root container. Embedded SQLite, Markdown notes with tags and attachments, public share links, and all data in the application data folder so it survives restarts and updates."
+important    = "Requires DockerEngine (installed automatically if missing). The first account you register becomes the administrator; notes, attachments and settings live in DockerAppData/memosdocker/data. The web UI is plain HTTP on the published port - put it behind a TLS reverse proxy before exposing it to the internet. Back up the data folder before uninstalling with data removal; the container itself keeps no state."
+
+[ko-kr]
+name         = "Memos"
+auth         = "usememos"
+version      = "@@VERSION@@"
+descript     = "Memos is a lightweight, self-hosted memo hub: a private place for quick notes, links and ideas. Write in Markdown, organise with tags, attach images, and share a single memo with a public link. It runs as one small container with an embedded SQLite database, so there is no database server to install, and everything you write stays in the application data folder on your NAS."
+release_note = "1. First release: Memos 0.31.0 from Docker Hub as a non-root container. Embedded SQLite, Markdown notes with tags and attachments, public share links, and all data in the application data folder so it survives restarts and updates."
+important    = "Requires DockerEngine (installed automatically if missing). The first account you register becomes the administrator; notes, attachments and settings live in DockerAppData/memosdocker/data. The web UI is plain HTTP on the published port - put it behind a TLS reverse proxy before exposing it to the internet. Back up the data folder before uninstalling with data removal; the container itself keeps no state."
+
+[pl-pl]
+name         = "Memos"
+auth         = "usememos"
+version      = "@@VERSION@@"
+descript     = "Memos is a lightweight, self-hosted memo hub: a private place for quick notes, links and ideas. Write in Markdown, organise with tags, attach images, and share a single memo with a public link. It runs as one small container with an embedded SQLite database, so there is no database server to install, and everything you write stays in the application data folder on your NAS."
+release_note = "1. First release: Memos 0.31.0 from Docker Hub as a non-root container. Embedded SQLite, Markdown notes with tags and attachments, public share links, and all data in the application data folder so it survives restarts and updates."
+important    = "Requires DockerEngine (installed automatically if missing). The first account you register becomes the administrator; notes, attachments and settings live in DockerAppData/memosdocker/data. The web UI is plain HTTP on the published port - put it behind a TLS reverse proxy before exposing it to the internet. Back up the data folder before uninstalling with data removal; the container itself keeps no state."
+
+[ru-ru]
+name         = "Memos"
+auth         = "usememos"
+version      = "@@VERSION@@"
+descript     = "Memos is a lightweight, self-hosted memo hub: a private place for quick notes, links and ideas. Write in Markdown, organise with tags, attach images, and share a single memo with a public link. It runs as one small container with an embedded SQLite database, so there is no database server to install, and everything you write stays in the application data folder on your NAS."
+release_note = "1. First release: Memos 0.31.0 from Docker Hub as a non-root container. Embedded SQLite, Markdown notes with tags and attachments, public share links, and all data in the application data folder so it survives restarts and updates."
+important    = "Requires DockerEngine (installed automatically if missing). The first account you register becomes the administrator; notes, attachments and settings live in DockerAppData/memosdocker/data. The web UI is plain HTTP on the published port - put it behind a TLS reverse proxy before exposing it to the internet. Back up the data folder before uninstalling with data removal; the container itself keeps no state."
+
+[tr-tr]
+name         = "Memos"
+auth         = "usememos"
+version      = "@@VERSION@@"
+descript     = "Memos is a lightweight, self-hosted memo hub: a private place for quick notes, links and ideas. Write in Markdown, organise with tags, attach images, and share a single memo with a public link. It runs as one small container with an embedded SQLite database, so there is no database server to install, and everything you write stays in the application data folder on your NAS."
+release_note = "1. First release: Memos 0.31.0 from Docker Hub as a non-root container. Embedded SQLite, Markdown notes with tags and attachments, public share links, and all data in the application data folder so it survives restarts and updates."
+important    = "Requires DockerEngine (installed automatically if missing). The first account you register becomes the administrator; notes, attachments and settings live in DockerAppData/memosdocker/data. The web UI is plain HTTP on the published port - put it behind a TLS reverse proxy before exposing it to the internet. Back up the data folder before uninstalling with data removal; the container itself keeps no state."
+
+[pt-pt]
+name         = "Memos"
+auth         = "usememos"
+version      = "@@VERSION@@"
+descript     = "Memos is a lightweight, self-hosted memo hub: a private place for quick notes, links and ideas. Write in Markdown, organise with tags, attach images, and share a single memo with a public link. It runs as one small container with an embedded SQLite database, so there is no database server to install, and everything you write stays in the application data folder on your NAS."
+release_note = "1. First release: Memos 0.31.0 from Docker Hub as a non-root container. Embedded SQLite, Markdown notes with tags and attachments, public share links, and all data in the application data folder so it survives restarts and updates."
+important    = "Requires DockerEngine (installed automatically if missing). The first account you register becomes the administrator; notes, attachments and settings live in DockerAppData/memosdocker/data. The web UI is plain HTTP on the published port - put it behind a TLS reverse proxy before exposing it to the internet. Back up the data folder before uninstalling with data removal; the container itself keeps no state."
+
+[ar-sa]
+name         = "Memos"
+auth         = "usememos"
+version      = "@@VERSION@@"
+descript     = "Memos is a lightweight, self-hosted memo hub: a private place for quick notes, links and ideas. Write in Markdown, organise with tags, attach images, and share a single memo with a public link. It runs as one small container with an embedded SQLite database, so there is no database server to install, and everything you write stays in the application data folder on your NAS."
+release_note = "1. First release: Memos 0.31.0 from Docker Hub as a non-root container. Embedded SQLite, Markdown notes with tags and attachments, public share links, and all data in the application data folder so it survives restarts and updates."
+important    = "Requires DockerEngine (installed automatically if missing). The first account you register becomes the administrator; notes, attachments and settings live in DockerAppData/memosdocker/data. The web UI is plain HTTP on the published port - put it behind a TLS reverse proxy before exposing it to the internet. Back up the data folder before uninstalling with data removal; the container itself keeps no state."
+
+[cs-cz]
+name         = "Memos"
+auth         = "usememos"
+version      = "@@VERSION@@"
+descript     = "Memos is a lightweight, self-hosted memo hub: a private place for quick notes, links and ideas. Write in Markdown, organise with tags, attach images, and share a single memo with a public link. It runs as one small container with an embedded SQLite database, so there is no database server to install, and everything you write stays in the application data folder on your NAS."
+release_note = "1. First release: Memos 0.31.0 from Docker Hub as a non-root container. Embedded SQLite, Markdown notes with tags and attachments, public share links, and all data in the application data folder so it survives restarts and updates."
+important    = "Requires DockerEngine (installed automatically if missing). The first account you register becomes the administrator; notes, attachments and settings live in DockerAppData/memosdocker/data. The web UI is plain HTTP on the published port - put it behind a TLS reverse proxy before exposing it to the internet. Back up the data folder before uninstalling with data removal; the container itself keeps no state."
+
+[he-il]
+name         = "Memos"
+auth         = "usememos"
+version      = "@@VERSION@@"
+descript     = "Memos is a lightweight, self-hosted memo hub: a private place for quick notes, links and ideas. Write in Markdown, organise with tags, attach images, and share a single memo with a public link. It runs as one small container with an embedded SQLite database, so there is no database server to install, and everything you write stays in the application data folder on your NAS."
+release_note = "1. First release: Memos 0.31.0 from Docker Hub as a non-root container. Embedded SQLite, Markdown notes with tags and attachments, public share links, and all data in the application data folder so it survives restarts and updates."
+important    = "Requires DockerEngine (installed automatically if missing). The first account you register becomes the administrator; notes, attachments and settings live in DockerAppData/memosdocker/data. The web UI is plain HTTP on the published port - put it behind a TLS reverse proxy before exposing it to the internet. Back up the data folder before uninstalling with data removal; the container itself keeps no state."
+
+[id-id]
+name         = "Memos"
+auth         = "usememos"
+version      = "@@VERSION@@"
+descript     = "Memos is a lightweight, self-hosted memo hub: a private place for quick notes, links and ideas. Write in Markdown, organise with tags, attach images, and share a single memo with a public link. It runs as one small container with an embedded SQLite database, so there is no database server to install, and everything you write stays in the application data folder on your NAS."
+release_note = "1. First release: Memos 0.31.0 from Docker Hub as a non-root container. Embedded SQLite, Markdown notes with tags and attachments, public share links, and all data in the application data folder so it survives restarts and updates."
+important    = "Requires DockerEngine (installed automatically if missing). The first account you register becomes the administrator; notes, attachments and settings live in DockerAppData/memosdocker/data. The web UI is plain HTTP on the published port - put it behind a TLS reverse proxy before exposing it to the internet. Back up the data folder before uninstalling with data removal; the container itself keeps no state."
+
+[nb-no]
+name         = "Memos"
+auth         = "usememos"
+version      = "@@VERSION@@"
+descript     = "Memos is a lightweight, self-hosted memo hub: a private place for quick notes, links and ideas. Write in Markdown, organise with tags, attach images, and share a single memo with a public link. It runs as one small container with an embedded SQLite database, so there is no database server to install, and everything you write stays in the application data folder on your NAS."
+release_note = "1. First release: Memos 0.31.0 from Docker Hub as a non-root container. Embedded SQLite, Markdown notes with tags and attachments, public share links, and all data in the application data folder so it survives restarts and updates."
+important    = "Requires DockerEngine (installed automatically if missing). The first account you register becomes the administrator; notes, attachments and settings live in DockerAppData/memosdocker/data. The web UI is plain HTTP on the published port - put it behind a TLS reverse proxy before exposing it to the internet. Back up the data folder before uninstalling with data removal; the container itself keeps no state."
+
+[nl-nl]
+name         = "Memos"
+auth         = "usememos"
+version      = "@@VERSION@@"
+descript     = "Memos is a lightweight, self-hosted memo hub: a private place for quick notes, links and ideas. Write in Markdown, organise with tags, attach images, and share a single memo with a public link. It runs as one small container with an embedded SQLite database, so there is no database server to install, and everything you write stays in the application data folder on your NAS."
+release_note = "1. First release: Memos 0.31.0 from Docker Hub as a non-root container. Embedded SQLite, Markdown notes with tags and attachments, public share links, and all data in the application data folder so it survives restarts and updates."
+important    = "Requires DockerEngine (installed automatically if missing). The first account you register becomes the administrator; notes, attachments and settings live in DockerAppData/memosdocker/data. The web UI is plain HTTP on the published port - put it behind a TLS reverse proxy before exposing it to the internet. Back up the data folder before uninstalling with data removal; the container itself keeps no state."
+
+[sv-se]
+name         = "Memos"
+auth         = "usememos"
+version      = "@@VERSION@@"
+descript     = "Memos is a lightweight, self-hosted memo hub: a private place for quick notes, links and ideas. Write in Markdown, organise with tags, attach images, and share a single memo with a public link. It runs as one small container with an embedded SQLite database, so there is no database server to install, and everything you write stays in the application data folder on your NAS."
+release_note = "1. First release: Memos 0.31.0 from Docker Hub as a non-root container. Embedded SQLite, Markdown notes with tags and attachments, public share links, and all data in the application data folder so it survives restarts and updates."
+important    = "Requires DockerEngine (installed automatically if missing). The first account you register becomes the administrator; notes, attachments and settings live in DockerAppData/memosdocker/data. The web UI is plain HTTP on the published port - put it behind a TLS reverse proxy before exposing it to the internet. Back up the data folder before uninstalling with data removal; the container itself keeps no state."
+
+[th-th]
+name         = "Memos"
+auth         = "usememos"
+version      = "@@VERSION@@"
+descript     = "Memos is a lightweight, self-hosted memo hub: a private place for quick notes, links and ideas. Write in Markdown, organise with tags, attach images, and share a single memo with a public link. It runs as one small container with an embedded SQLite database, so there is no database server to install, and everything you write stays in the application data folder on your NAS."
+release_note = "1. First release: Memos 0.31.0 from Docker Hub as a non-root container. Embedded SQLite, Markdown notes with tags and attachments, public share links, and all data in the application data folder so it survives restarts and updates."
+important    = "Requires DockerEngine (installed automatically if missing). The first account you register becomes the administrator; notes, attachments and settings live in DockerAppData/memosdocker/data. The web UI is plain HTTP on the published port - put it behind a TLS reverse proxy before exposing it to the internet. Back up the data folder before uninstalling with data removal; the container itself keeps no state."
+
+[vi-vn]
+name         = "Memos"
+auth         = "usememos"
+version      = "@@VERSION@@"
+descript     = "Memos is a lightweight, self-hosted memo hub: a private place for quick notes, links and ideas. Write in Markdown, organise with tags, attach images, and share a single memo with a public link. It runs as one small container with an embedded SQLite database, so there is no database server to install, and everything you write stays in the application data folder on your NAS."
+release_note = "1. First release: Memos 0.31.0 from Docker Hub as a non-root container. Embedded SQLite, Markdown notes with tags and attachments, public share links, and all data in the application data folder so it survives restarts and updates."
+important    = "Requires DockerEngine (installed automatically if missing). The first account you register becomes the administrator; notes, attachments and settings live in DockerAppData/memosdocker/data. The web UI is plain HTTP on the published port - put it behind a TLS reverse proxy before exposing it to the internet. Back up the data folder before uninstalling with data removal; the container itself keeps no state."
+
