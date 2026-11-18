@@ -1,7 +1,7 @@
 # ===========================================================================
 # Memos for TerraMaster TOS 7 (Docker application)
 # ===========================================================================
-# Upstream image : neosmemo/memos:0.31.0 (Docker Hub, used unmodified)
+# Upstream image : neosmemo/memos:26.11.1 (Docker Hub, used unmodified)
 #                  -> https://github.com/usememos/memos
 #
 # Ports   : host 8030 -> container 5230. The host port is in the
@@ -26,7 +26,7 @@
 
 services:
   memosdocker:
-    image: neosmemo/memos:0.31.0
+    image: neosmemo/memos:26.11.1
     container_name: memosdocker
     restart: unless-stopped
     user: "1000:1000"

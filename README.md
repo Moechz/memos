@@ -11,13 +11,13 @@ Memos on TOS 7 through the App Center:
 - `config.ini` — TOS application metadata (`application_type: docker`, id `memosdocker`)
 - `memosdocker.lang` — 23-language superset (TOS requires 14)
 - `memosdocker.svg` — application icon (1780 bytes, 4 SVG elements)
-- `docker-compose.yml` — one service, image `neosmemo/memos:0.31.0`
+- `docker-compose.yml` — one service, image `neosmemo/memos:26.11.1`
 
 ## How it works
 
 | | |
 |---|---|
-| Container image | `neosmemo/memos:0.31.0` (Docker Hub, used unmodified) |
+| Container image | `neosmemo/memos:26.11.1` (Docker Hub, used unmodified) |
 | Open | `http://<NAS-IP>:8030/` (container port 5230) |
 | Runs as | non-root, `user: "1000:1000"` |
 | Persistent data | `/var/opt/memos` → `/Volume1/DockerAppData/memosdocker/data` |
@@ -28,17 +28,18 @@ Everything Memos writes lives in `/var/opt/memos`, mounted from `/Volume1/Docker
 ## Privacy
 
 This application runs entirely on your NAS. **The developer does not collect, receive or
-have access to any data processed by the application.** There is no telemetry, no analytics
-and no account.
+have access to any data processed by the application.** There is no telemetry, no analytics,
+no usage reporting and no developer-operated account. Memos itself keeps local user accounts
+because it stores who wrote which memo; those accounts never leave the NAS.
 
 | Topic | Detail |
 |---|---|
-| Data processed | The application's configuration, database, caches and logs, plus any files you create with it. |
+| Data processed | The SQLite database in the data folder: your memos (Markdown, tags, visibility, share tokens), uploaded attachments and avatars, local user accounts (username, optional e-mail, password hash, role), session tokens and instance settings. |
 | Where it is stored | The application data folder (`/Volume1/DockerAppData/memosdocker/`) on your NAS. Nothing is uploaded to the developer. |
-| Retention period | Until **you** delete it. Logs are rotated or size-limited by the application; uninstalling keeps the data unless you tick “delete data”. |
-| Your rights | **Access / export**: copy the data folder. **Correct**: change the values in the web UI. **Delete**: uninstall with “delete data”, or remove the folder after stopping the container. |
+| Retention period | Until **you** delete it — there is no automatic expiry and no cloud copy. Uninstalling keeps the data unless you tick “delete data”. Container logs follow the DockerEngine log rotation. |
+| Your rights | **Access / export**: copy the data folder, or use the UI export (Settings → Data). **Correct**: edit the memo/profile in the UI. **Delete**: delete memos in the UI, or uninstall with “delete data”, or remove the folder after stopping the container. **Restrict**: per-memo visibility (private / protected / public) and the instance access mode. |
 | Deletion channel | Delete the folder yourself, or email **moechz@163.com** (answered within 30 days). |
-| Security measures | Container runs as uid 1000 (never root), no `privileged`, no host network, no `cap_add`, no Docker socket, one published port; image tag pinned and refreshed on upstream fixes. |
+| Security measures | Container runs as uid 1000 (never root), no `privileged`, no host network, no `cap_add`, no Docker socket, one published port; image pinned to `neosmemo/memos:26.11.1`; passwords stored as hashes, admin-only administration; the UI is plain HTTP, so keep it on the LAN or behind a TLS reverse proxy. |
 | Children | Not directed at children. |
 
 **Full privacy policy:** [PRIVACY.md](PRIVACY.md) —
@@ -47,14 +48,15 @@ and no account.
 
 ## Third-party services (API disclosure)
 
-The developer operates no server in this path. The application contacts only the services
-**you configure**, plus (optionally) an update check and the image registry.
+The developer operates no server in this path, and neither Memos nor this package has an
+update check or telemetry: the app makes **no outbound connection of its own**.
 
 | Service | Endpoint | Data sent | Destination / region |
 |---|---|---|---|
-| Services you configure in the app | the address you enter | only the data that feature needs | normally your own LAN or the provider you chose |
-| Update check (if enabled) | the upstream project's release feed | current version string | GitHub, US |
+| Your browser → the app | `http://<NAS-IP>:8030` | memos you write, your login | your own NAS / LAN |
+| Optional integrations you configure (SSO/OAuth provider, S3-compatible storage, webhook, another Memos instance) | the URL you enter | only the data that feature needs | the provider you chose |
 | Image pull | `registry-1.docker.io` or your registry mirror | anonymous pull | Docker Hub, US / your mirror |
+| Update check | none | — | — |
 
 See `PRIVACY.md` §6 for the full table. Disable any integration in the app's settings if you
 do not want it.
@@ -64,8 +66,8 @@ do not want it.
 | Component | Licence | Notes |
 |---|---|---|
 | Memos | MIT | upstream application, used unmodified inside the image |
-| Container image `neosmemo/memos:0.31.0` | see the image's own metadata | pulled from Docker Hub at install time |
-| This packaging | GPL-3.0 (see `LICENSE`) | compose file, metadata, translations, icon |
+| Container image `neosmemo/memos:26.11.1` | Memos MIT; base system utilities under their own licences | pulled from Docker Hub at install time, not redistributed here |
+| This packaging | MIT (see `LICENSE`) | compose file, metadata, translations, icon, scripts |
 
 “Memos”, “TerraMaster” and “TOS” are trademarks of their respective owners. This is an
 independent community package by Moechz and is not affiliated with the upstream project or
@@ -94,8 +96,8 @@ table lists what is created and how it behaves. Nothing else is written.
 
 ```bash
 scripts/build.sh                  # -> out/memosdocker.tar.gz + .sha256
-scripts/build.sh 0.31.0-2   # packaging iteration bump
-scripts/build.sh 0.31.0-1 aarch64
+scripts/build.sh 26.11.1-2  # packaging iteration bump
+scripts/build.sh 26.11.1-1 aarch64
 ```
 
 The build stages the four files, substitutes the version/platform placeholders,
@@ -121,12 +123,14 @@ bash test/install-and-verify.sh                  # on-device E2E (needs root)
 ## Store submission checklist
 
 1. Public GitHub repo (code + README only).
-2. Release **tag `v0.31.0-1`**, assets `memosdocker.tar.gz` +
-   `memosdocker.tar.gz.sha256` (Docker asset naming: `<app_id>.tar.gz`, **no
-   platform suffix**).
+2. Release **tag `v26.11.1-1`**, assets `memosdocker_x86_64.tar.gz` / `.sha256` and
+   `memosdocker_aarch64.tar.gz` / `.sha256` (Docker asset naming: `<app_id>_<arch>.tar.gz`;
+   the store wants one package per architecture).
 3. Developer platform → Add Application: ID `memosdocker`, package type Docker,
-   repository URL, architecture `x86_64`.
-4. Version Management → Add Version `0.31.0-1` → automated validation → review.
+   repository URL, architecture `x86_64` and `aarch64`.
+4. Version Management → Add Version `26.11.1-1` → automated validation → review.
+   In the submission remarks, link the privacy policy
+   (<https://github.com/Moechz/memos/blob/main/PRIVACY.md>).
 
 
 ## Limitations
